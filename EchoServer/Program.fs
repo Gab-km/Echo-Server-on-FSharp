@@ -8,7 +8,6 @@ let rec doLoop (ns : NetworkStream) (ms : MemoryStream) (ba: byte array) =
     let resSize = ns.Read (ba, 0, ba.Length)
     if resSize = 0 then
         Console.WriteLine("Client has closed.")
-        Console.Read () |> ignore
     else
         ms.Write(ba, 0, resSize)
         if ns.DataAvailable then
